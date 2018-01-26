@@ -15,3 +15,8 @@ var waitlist = [
         username: 'feedme101'
     },
 ];
+
+module.exports = {
+    reservations: reservations,
+    waitlist: waitlist
+};
