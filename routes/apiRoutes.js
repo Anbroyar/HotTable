@@ -1,25 +1,19 @@
+var hotTable = require('../data/hotTable.js');
+
 // Routes
 // =============================================================
 function apiRoutes(app) {
     // Search for Specific Character (or all characters) - provides JSON
-    app.get("/api/:reservations", function (req, result) {
-        var res = req.params.reservations;
+    app.get("/api/reservations", function (req, result) {
+        var res = req.params.hotTable.reservations;
         console.log(res);
-        return res.json(reservations);
+        return res.json(hotTable.reservations);
     });
 
-    app.get("/api/:waitlist", function (req, res) {
-        var chosen = req.params.characters;
-        if (chosen) {
-            console.log(chosen);
-            for (var i = 0; i < characters.length; i++) {
-                if (chosen === characters[i].routeName) {
-                    return res.json(characters[i]);
-                }
-            }
-            return res.json(false);
-        }
-        return res.json(characters);
+    app.get("/api/waitlist", function (req, res) {
+        var waiting = req.params.waitlist;
+        console.log(waiting);
+        return res.json(waitlist);
     });
 
     // Create New Characters - takes in JSON input
