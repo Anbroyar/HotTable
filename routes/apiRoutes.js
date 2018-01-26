@@ -4,13 +4,13 @@ var hotTable = require('../data/hotTable.js');
 // =============================================================
 function apiRoutes(app) {
     // Search for Specific Character (or all characters) - provides JSON
-    app.get("/api/:reservations", function (req, result) {
+    app.get("/api/reservations", function (req, result) {
         var res = req.params.hotTable.reservations;
         console.log(res);
         return res.json(hotTable.reservations);
     });
 
-    app.get("/api/:waitlist", function (req, res) {
+    app.get("/api/waitlist", function (req, res) {
         var waiting = req.params.waitlist;
         console.log(waiting);
         return res.json(waitlist);
