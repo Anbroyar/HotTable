@@ -28,11 +28,13 @@ function apiRoutes(app) {
     app.post("/api/tables", function (req, res) {
         // req.body hosts is equal to the JSON post sent from the user
         // This works because of our body-parser middleware
-        var newcharacter = req.body;
-        newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
-        console.log(newcharacter);
-        characters.push(newcharacter);
-        res.json(newcharacter);
+        if (hotTable.reservations.length < 5) {
+            hotTable.reservations.push(req.body);
+            res.json(true);
+        } else {
+            hotTable.waitlist.push(req.body);
+            res.json(false);
+        }
     });
 }
 
