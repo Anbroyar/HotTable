@@ -1,6 +1,6 @@
 //Dependencies
 var apiRoutes = require('./routes/apiRoutes.js');
-var htmlRoutes = requie('.routes/jtmlRoutes.js');
+var htmlRoutes = require('./routes/htmlRoutes.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
